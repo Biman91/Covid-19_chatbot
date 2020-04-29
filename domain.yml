@@ -1,0 +1,92 @@
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet
+- goodbye
+- affirm
+- deny
+- mood_great
+- mood_unhappy
+- bot_challenge
+- joke
+- abhay_name
+- form_details
+- covid
+slots:
+  email:
+    type: unfeaturized
+    auto_fill: false
+  mobile:
+    type: unfeaturized
+    auto_fill: false
+  name:
+    type: unfeaturized
+    auto_fill: false
+  pin:
+    type: unfeaturized
+    auto_fill: false
+  state:
+    type: unfeaturized
+    auto_fill: false
+responses:
+  utter_greet:
+  - text: Hey! How are you?
+  utter_cheer_up:
+  - text: 'Here is something to cheer you up:'
+    image: https://i.imgur.com/nGF1K8f.jpg
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_abhay:
+  - text: Toh mai ukharu. Maggi V bana ja kar.
+  utter_ask_name:
+  - text: Please provide your name.
+  utter_ask_email:
+  - text: Please provide your Email ID.
+  utter_ask_mobile:
+  - text: Please provide your Phone Number.
+  utter_ask_pin:
+  - text: Please enter your PIN Code.
+  utter_ask_state:
+  - text: Please enter your State name
+  utter_submit:
+  - text: Your detais... name is {name}, email is {email}, phone number is {ph} and
+      pin code is {pin}.
+  utter_slots_values:
+  - text: Thank you.
+  utter_case:
+  - text: Your state name is {state}. Total Positive case is {result}.
+  utter_question:
+  - text:  Would you like to search any other state?
+    buttons:
+      - title: "Yes"
+        payload: /covid
+      - title: "No"
+        payload: /goodbye
+actions:
+- utter_greet
+- utter_cheer_up
+- utter_did_that_help
+- utter_happy
+- utter_goodbye
+- utter_iamabot
+- action_joke
+- utter_abhay
+- utter_ask_name
+- utter_ask_email
+- utter_ask_mobile
+- utter_ask_pin
+- utter_ask_state
+- utter_submit
+- utter_slots_values
+- utter_case
+- utter_question
+forms:
+- covid_form
+- covid_case
