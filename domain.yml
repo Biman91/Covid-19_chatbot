@@ -1,0 +1,118 @@
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet
+- goodbye
+- affirm
+- deny
+- mood_great
+- mood_unhappy
+- bot_challenge
+- state_cases
+- country_cases
+- pincode_cases
+- dist_cases
+- corona_cases
+- enter_pincode
+
+entities:
+- pincode
+
+slots:
+  state:
+    type: unfeaturized
+    auto_fill: false
+  country:
+    type: unfeaturized
+    auto_fill: false
+  pin:
+    type: unfeaturized
+    auto_fill: false
+  dist:
+    type: unfeaturized
+    auto_fill: false
+responses:
+  utter_greet:
+  - text: Hey! How are you?
+  utter_cheer_up:
+  - text: 'Here is something to cheer you up:'
+    image: https://i.imgur.com/nGF1K8f.jpg
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_ask_state:
+  - text: "Please enter State Name:"
+  utter_case:
+  - text: Your state name is {state}. {result}.
+  utter_question:
+  - text: Would you like to search any other state?
+    buttons:
+    - title: Yes
+      payload: /state_cases
+    - title: No
+      payload: /goodbye
+  utter_ask_country:
+    - text: "Please enter Country Name:"
+  utter_case1:
+    - text: Your country name is {country}. {result}.
+  utter_question1:
+    - text: Would you like to search any other country?
+      buttons:
+      - title: Yes
+        payload: /country_cases
+      - title: No
+        payload: /goodbye
+  utter_ask_pin:
+    - text: "Please enter PIN Code:"
+  utter_case2:
+    - text: Pin Code is {pin}. {result}.
+  utter_question2:
+    - text: Would you like to search any other Pin Code?
+      buttons:
+      - title: Yes
+        payload: /pincode_cases
+      - title: No
+        payload: /goodbye
+  utter_ask_dist:
+    - text: "Please enter District Name:"
+  utter_case3:
+    - text: District name is {dist}. {result}.
+  utter_question3:
+    - text: Would you like to search any other District?
+      buttons:
+      - title: Yes
+        payload: /dist_cases
+      - title: No
+        payload: /goodbye
+  utter_cases:
+    - text: How would you like to know cases
+      buttons:
+      - title: Country cases
+        payload: /country_cases
+      - title: State cases
+        payload: /state_cases
+      - title: PIN Codewise cases
+        payload: /pincode_cases
+      - title: District Cases
+        payload: /dist_cases
+actions:
+- utter_greet
+- utter_cheer_up
+- utter_did_that_help
+- utter_happy
+- utter_goodbye
+- utter_iamabot
+- utter_ask_state
+- utter_case
+- utter_question
+forms:
+- state_covid_case
+- country_covid_case
+- pin_covid_case
+- dist_covid_case
